@@ -27,3 +27,55 @@ kubectl -n kube-system describe $(kubectl -n kube-system get secret -n kube-syst
 
 # Navigate to https://<server ip>:<port>/#/login
 ```
+
+
+## Get demo in to the server
+1. Execute the following command in the server
+```
+git clone https://github.com/cguillencr/kubernetes-docker-mvc-demo.git
+cd kubernetes-docker-mvc-demo/Demo/
+```
+
+2.  Create a locally docker image
+```
+docker build -t "cguillenmendez/core:api" .
+docker images
+```
+
+Validate image "cguillenmendez/core" was created.
+
+2.1 Update the image to docker.io
+```
+docker push cguillenmendez/core:api
+```
+
+
+3. Test application locally using just dokcer 
+
+```
+docker run -d -p 8080:80 --name demo cguillenmendez/core:api
+docker ps -a
+```
+Navigate to http://<ip>:8080/api/values and validate this output
+```
+["value1","value2"]
+```
+
+4. Create a K8 deployment
+```
+ kubectl create deployment k8demo --image=cguillenmendez/core:api
+ ```
+
+5. Create a service to expose the last pod
+```
+kubectl get services
+kubectl expose deployment k8demo --type="NodePort" --port 80
+kubectl get services
+```
+
+Navigate to http://<ip>:<port in lastt command>/api/values and validate this output
+```
+["value1","value2"]
+```
+
+

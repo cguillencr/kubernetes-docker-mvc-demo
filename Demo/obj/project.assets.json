@@ -11876,11 +11876,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\Demo\\Demo.csproj",
+      "projectUniqueName": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\Demo\\Demo.csproj",
       "projectName": "Demo",
-      "projectPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\Demo\\Demo.csproj",
+      "projectPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\Demo\\Demo.csproj",
       "packagesPath": "C:\\Users\\cguil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\Demo\\obj\\",
+      "outputPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\Demo\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
