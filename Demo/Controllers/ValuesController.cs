@@ -10,11 +10,12 @@ namespace Demo.Controllers
 	[ApiController]
 	public class ValuesController : ControllerBase
 	{
+		public static List<string> data = new List<string>();
 		// GET api/values
 		[HttpGet]
 		public ActionResult<IEnumerable<string>> Get()
 		{
-			return new string[] { "value1", "value2" };
+			return data;
 		}
 
 		// GET api/values/5
@@ -28,6 +29,7 @@ namespace Demo.Controllers
 		[HttpPost]
 		public void Post([FromBody] string value)
 		{
+			data.Add(value);
 		}
 
 		// PUT api/values/5
