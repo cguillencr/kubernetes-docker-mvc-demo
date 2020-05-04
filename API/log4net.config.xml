@@ -6,7 +6,7 @@
 		</layout>
 	</appender>
 	<appender name="demo" type="log4net.Appender.RollingFileAppender">
-		<file value="/tmp/ui/out.log" />
+		<file value="/tmp/api/out.log" />
 		<appendToFile value="true" />
 		<rollingStyle value="Size" />
 		<maxSizeRollBackups value="-1" />
