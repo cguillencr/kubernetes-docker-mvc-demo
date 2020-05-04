@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\UI.csproj": {}
+    "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\API\\API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\UI.csproj": {
+    "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\UI.csproj",
-        "projectName": "UI",
-        "projectPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\UI.csproj",
+        "projectUniqueName": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\API\\API.csproj",
+        "projectName": "API",
+        "projectPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\API\\API.csproj",
         "packagesPath": "C:\\Users\\cguil\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\obj\\",
+        "outputPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -61,10 +61,6 @@
             "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
               "target": "Package",
               "version": "[1.7.12, )"
-            },
-            "RestSharp": {
-              "target": "Package",
-              "version": "[106.10.1, )"
             }
           },
           "imports": [

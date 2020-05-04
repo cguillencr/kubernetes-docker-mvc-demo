@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Demo.Controllers;
+using APIv2.Controllers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +12,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 
-namespace Demo
+namespace APIv2
 {
 	public class Startup
 	{
@@ -33,17 +33,15 @@ namespace Demo
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
 
-
 			#region 
 			// This block simulates an Actor who recovery state and becomes this project to a stateFull application.
-			// Simulates 10sec to recover state.
+			// Simulates 2mins to recover state.
 
-			Thread.Sleep(10000);
-			ValuesController.data.Add("value1");
-			ValuesController.data.Add("value2");
+			Thread.Sleep(120000);
+			ValuesController.data.Add("value3");
+			ValuesController.data.Add("value4");
 
 			#endregion
-
 
 			if (env.IsDevelopment())
 			{

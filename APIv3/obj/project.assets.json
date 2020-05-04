@@ -2578,7 +2578,7 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.7.12": {
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.8": {
         "type": "package",
         "build": {
           "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props": {},
@@ -2665,15 +2665,6 @@
         },
         "runtime": {
           "lib/netstandard1.0/Remotion.Linq.dll": {}
-        }
-      },
-      "RestSharp/106.10.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/RestSharp.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/RestSharp.dll": {}
         }
       },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -6918,22 +6909,23 @@
         "version.txt"
       ]
     },
-    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.7.12": {
-      "sha512": "hkaY6So+2G9eVo8WdqMDeyXfYd0OLLOA8V0xeKXleCjeu1wh1JN2LFDPphpfVgIZrxiOU/ZOWBYaASxj9M8SDg==",
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.10.8": {
+      "sha512": "LXlwvlXetgFg2sqsLCzi+Kd+nV78VrRzy9u6nKU05yx9tcsF9BcLqL/+vtj01Z7RPhp0U8D4Px/bHbyMR9Ddjg==",
       "type": "package",
-      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.7.12",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.10.8",
       "hasTools": true,
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "EULA.md",
+        "ThirdPartyNotices.txt",
         "build/Container.props",
         "build/Container.targets",
         "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.props",
         "build/Microsoft.VisualStudio.Azure.Containers.Tools.Targets.targets",
         "build/ToolsTarget.props",
         "build/ToolsTarget.targets",
-        "microsoft.visualstudio.azure.containers.tools.targets.1.7.12.nupkg.sha512",
+        "microsoft.visualstudio.azure.containers.tools.targets.1.10.8.nupkg.sha512",
         "microsoft.visualstudio.azure.containers.tools.targets.nuspec",
         "tools/Microsoft.VisualStudio.Containers.Tools.Common.dll",
         "tools/Microsoft.VisualStudio.Containers.Tools.Shared.dll",
@@ -7213,21 +7205,6 @@
         "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.xml",
         "remotion.linq.2.2.0.nupkg.sha512",
         "remotion.linq.nuspec"
-      ]
-    },
-    "RestSharp/106.10.1": {
-      "sha512": "MhR4w8LbArVaRA5T/oAR3ZnF852QXtDXRBO84GsvyYzsm7FsjXHJ+JaM8x/nR/B/OCB1WbolGH7hqMT1GZpNJw==",
-      "type": "package",
-      "path": "restsharp/106.10.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/RestSharp.dll",
-        "lib/net452/RestSharp.xml",
-        "lib/netstandard2.0/RestSharp.dll",
-        "lib/netstandard2.0/RestSharp.xml",
-        "restsharp.106.10.1.nupkg.sha512",
-        "restsharp.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -11890,8 +11867,7 @@
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
-      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.7.12",
-      "RestSharp >= 106.10.1"
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.10.8"
     ]
   },
   "packageFolders": {
@@ -11901,11 +11877,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\UI.csproj",
-      "projectName": "UI",
-      "projectPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\APIv3\\APIv3.csproj",
+      "projectName": "APIv3",
+      "projectPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\APIv3\\APIv3.csproj",
       "packagesPath": "C:\\Users\\cguil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\obj\\",
+      "outputPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\APIv3\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11954,11 +11930,7 @@
           },
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
             "target": "Package",
-            "version": "[1.7.12, )"
-          },
-          "RestSharp": {
-            "target": "Package",
-            "version": "[106.10.1, )"
+            "version": "[1.10.8, )"
           }
         },
         "imports": [

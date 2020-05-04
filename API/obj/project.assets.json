@@ -2667,15 +2667,6 @@
           "lib/netstandard1.0/Remotion.Linq.dll": {}
         }
       },
-      "RestSharp/106.10.1": {
-        "type": "package",
-        "compile": {
-          "lib/netstandard2.0/RestSharp.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/RestSharp.dll": {}
-        }
-      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
         "type": "package",
         "runtimeTargets": {
@@ -7213,21 +7204,6 @@
         "lib/portable-net45+win+wpa81+wp80/Remotion.Linq.xml",
         "remotion.linq.2.2.0.nupkg.sha512",
         "remotion.linq.nuspec"
-      ]
-    },
-    "RestSharp/106.10.1": {
-      "sha512": "MhR4w8LbArVaRA5T/oAR3ZnF852QXtDXRBO84GsvyYzsm7FsjXHJ+JaM8x/nR/B/OCB1WbolGH7hqMT1GZpNJw==",
-      "type": "package",
-      "path": "restsharp/106.10.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net452/RestSharp.dll",
-        "lib/net452/RestSharp.xml",
-        "lib/netstandard2.0/RestSharp.dll",
-        "lib/netstandard2.0/RestSharp.xml",
-        "restsharp.106.10.1.nupkg.sha512",
-        "restsharp.nuspec"
       ]
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.0": {
@@ -11890,8 +11866,7 @@
       "Microsoft.AspNetCore.App >= 2.1.1",
       "Microsoft.AspNetCore.Razor.Design >= 2.1.2",
       "Microsoft.NETCore.App >= 2.1.0",
-      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.7.12",
-      "RestSharp >= 106.10.1"
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets >= 1.7.12"
     ]
   },
   "packageFolders": {
@@ -11901,11 +11876,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\UI.csproj",
-      "projectName": "UI",
-      "projectPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\UI.csproj",
+      "projectUniqueName": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\API\\API.csproj",
+      "projectName": "API",
+      "projectPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\API\\API.csproj",
       "packagesPath": "C:\\Users\\cguil\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\UI\\obj\\",
+      "outputPath": "C:\\Users\\cguil\\OneDrive\\Documents\\ncubo\\kubernetes-docker-mvc-demo\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -11955,10 +11930,6 @@
           "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
             "target": "Package",
             "version": "[1.7.12, )"
-          },
-          "RestSharp": {
-            "target": "Package",
-            "version": "[106.10.1, )"
           }
         },
         "imports": [
