@@ -26,19 +26,6 @@ namespace API
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
-
-
-			#region 
-			// This block simulates an Actor who recovery state and becomes this project to a stateFull application.
-			// Simulates 2mins to recover state.
-
-			Thread.Sleep(120000);
-			ValuesController.data.Add("value1");
-			ValuesController.data.Add("value2");
-
-			#endregion
-
-
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();

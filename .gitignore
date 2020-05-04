@@ -91,3 +91,6 @@
 /UI/bin/Debug/netcoreapp2.1/appsettings.Development.json
 /UI/bin/Debug/netcoreapp2.1/appsettings.json
 /UI/obj/Debug/netcoreapp2.1/UI.genruntimeconfig.cache
+/UI/bin/Debug/netcoreapp2.1/UI.deps.json
+/UI/bin/Debug/netcoreapp2.1/UI.runtimeconfig.dev.json
+/UI/bin/Debug/netcoreapp2.1/UI.runtimeconfig.json

@@ -31,12 +31,6 @@ namespace APIv3
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
-			#region 
-
-			ValuesController.data.Add("value5");
-			ValuesController.data.Add("value6");
-
-			#endregion
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();

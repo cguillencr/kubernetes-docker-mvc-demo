@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using APIv3.Controllers;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -14,6 +15,12 @@ namespace APIv3
 	{
 		public static void Main(string[] args)
 		{
+			#region 
+
+			ValuesController.data.Add("value5");
+			ValuesController.data.Add("value6");
+
+			#endregion
 			CreateWebHostBuilder(args).Build().Run();
 		}
 
