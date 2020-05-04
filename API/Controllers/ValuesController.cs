@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LogsProcesor;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers
@@ -15,6 +16,7 @@ namespace API.Controllers
 		[HttpGet]
 		public ActionResult<IEnumerable<string>> Get()
 		{
+			Logger.Debug($"Request {HttpContext.Request.Path}");
 			return data;
 		}
 

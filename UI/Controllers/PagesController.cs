@@ -22,6 +22,8 @@ namespace UI.Controllers
 		{
 			try
 			{
+				Logger.Debug($"Starting processing request {HttpContext.Request.Path}");
+
 				string apiServer = configuration.GetValue<string>("ApiServerUrl");
 
 				var client = new RestClient($"http://{apiServer}/api/values");
@@ -29,7 +31,7 @@ namespace UI.Controllers
 				var request = new RestRequest(Method.GET);
 				IRestResponse response = client.Execute(request);
 
-				if ( !response.IsSuccessful )
+				if (!response.IsSuccessful)
 				{
 					Logger.Debug($"API error. Status: {response.StatusCode} |  Content: {response.Content} |  ErrorMessage: {response.ErrorMessage} |  ErrorMessage: {response.ErrorException}");
 				}
@@ -40,6 +42,10 @@ namespace UI.Controllers
 			{
 				Logger.Error(e);
 				throw e;
+			}
+			finally
+			{
+				Logger.Debug($"Ending processing request {HttpContext.Request.Path}");
 			}
 			
 		}

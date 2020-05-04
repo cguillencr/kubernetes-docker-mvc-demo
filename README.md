@@ -1,9 +1,10 @@
 # kubernetes Docker and .Net(core) demo
 
-This demo have two applications. There is an **UI** app which reach REST controller in the **Core** app, so far they has just one service that returns an array of strings. **Core** it's a statefull app thats why has a thread sleep in the Startup process to simulate the application is recovering state. 
-These applications will be deployed using dokcer to generate the image and kubernetes to release it. **UI** will handle the users request that come over "internet" meanwhile **Core** will be an internal server who provide data only to the UI.
+This demo have two applications. There is an **UI** app which reach REST controller in the **API** app, so far they has just one service that returns an array of strings. **API** it's a statefull app thats why has a thread sleep in the Startup process to simulate the application is recovering state. 
+These applications will be deployed using dokcer to generate the image and kubernetes to release it. **UI** will handle the users request that come over "internet" meanwhile **API** will be an internal server who provide data only to the UI.
 
-
+There are two additionals applicaitions **APIv2**  and **APIv3**. the first one it to simulated and api upgrade meanwhile users create some traffic over the **UI** . The third one has the same purpose but it daoesn't required time to boots up. 
+In terms of docker **API** will ne the version 0.0.*, **APIv2** 0.1.* and **APIv3** 0.2.*
 ## Kubernetes dashboard
 First install Kubernetes dashboard to see the server installation easier
 
@@ -36,42 +37,39 @@ The folllowing step install both applications.
 1. Execute the following command in the server
 ```
 git clone https://github.com/cguillencr/kubernetes-docker-mvc-demo.git
-cd kubernetes-docker-mvc-demo/Demo/
 ```
 
 2.  Create a locally docker images
 ```
-docker build -t "cguillenmendez/core:0.0.1" .
-cd ../UI/
-docker build -t "cguillenmendez/ui:0.0.2" .
+cd /root/kubernetes-docker-mvc-demo/API/
+docker build -t "cguillenmendez/core:0.0.2" .
+cd /root/kubernetes-docker-mvc-demo/APIv2/
+docker build -t "cguillenmendez/core:0.1.0" .
+cd /root/kubernetes-docker-mvc-demo/APIv3/
+docker build -t "cguillenmendez/core:0.2.0" .
+cd /root/kubernetes-docker-mvc-demo/UI/
+docker build -t "cguillenmendez/ui:0.0.3" .
 docker images
 ```
 
-Validate "cguillenmendez/core" and  "cguillenmendez/ui" images was created.
+Validate "cguillenmendez/core 0.0.2", "cguillenmendez/core 0.1.0", "cguillenmendez/core 0.2.0" a and  "cguillenmendez/ui" 0.0.3 images was created.
 
 2.1 Update the image to docker.io
 ```
-docker push cguillenmendez/core:0.0.1
-docker push cguillenmendez/ui:0.0.2
+docker push cguillenmendez/core:0.0.2
+docker push cguillenmendez/core:0.1.0
+docker push cguillenmendez/core:0.2.0
+docker push cguillenmendez/ui:0.0.3
 ```
 
-2.2. Test application locally using just dokcer. (Not required)
-
-```
-docker run -d -p 1000:80 --name core cguillenmendez/core:0.0.1
-docker run -d -p 1001:80 --name ui cguillenmendez/ui:0.0.2
-docker ps -a
-```
-Navigate to http://<ip>:1000/api/values and validate this output
-```
-["value1","value2"]
-```
 
 3. Create a K8 deployment
 ```
- kubectl create deployment core --image=cguillenmendez/core:0.0.1
+ kubectl create deployment core --image=cguillenmendez/core:0.0.2
+ kubectl create deployment core --image=cguillenmendez/core:0.1.0
+ kubectl create deployment core --image=cguillenmendez/core:0.2.0
  kubectl delete -n default deployment ui
- kubectl create deployment ui --image=cguillenmendez/ui:0.0.2
+ kubectl create deployment ui --image=cguillenmendez/ui:0.0.3
  ```
 
 4. Create a service to expose the last pod
@@ -103,7 +101,7 @@ The kubernates bashboard shows how the: Deployment, Pod and Replica Set were del
 
 ```
 curl --location --request GET 'http://localhost:32391/page1'
-kubectl exec -it ui-766c879b4b-hnp5m -- cat /tmp/demo/out.log
+kubectl exec -it ui-7ddbdc65-q95mj -- cat /tmp/ui/out.log
 ```
 This is the output
 ```
@@ -113,12 +111,12 @@ This is the output
    at RestSharp.Http.ExecuteRequest(String httpMethod, Action`1 prepareRequest)
 ```
 
-Then for the second scenario delete the service, retrieve the page again and check the logs.  Be aware the pod name ~~ui-766c879b4b-hnp5m~~ will be different it your enviroment.
+Then for the second scenario delete the service, retrieve the page again and check the logs.  Be aware the pod name ~~ui-7ddbdc65-q95mj~~ will be different it your enviroment.
 
 ```
 kubectl delete -n default service core
 curl --location --request GET 'http://localhost:32391/page1'
-kubectl exec -it ui-766c879b4b-hnp5m -- cat /tmp/demo/out.log
+kubectl exec -it ui-7ddbdc65-q95mj -- cat /tmp/ui/out.log
 ```
 This is the output
 ```
@@ -144,3 +142,28 @@ This is the output
 ```
 #### Test #1 - Conclution
 If the API its down the UI will get a statud 0 response but the error details change that let developers to  manage handle the error if it's required.
+
+
+### Test #2 - Upgrade API image meanwhile the User are retriaving information.
+
+This scenario simulates an API upgrade from version 0.0.2 to 0.1.0 meanwhile there is an user navigating through the **UI** 
+
+```
+kubectl get deployments
+kubectl set image deployment/core core=cguillenmendez/core:0.1.0 --record
+curl --location --request GET 'http://localhost:32391/page1'
+```
+The last curl try to get the page but the pod needs 20 secs to start up thats why to following error is in the log
+
+```
+2020-05-04 02:47:39,538 | 35 | DEBUG | API error. Status: 0 |  Content:  |  ErrorMessage: The operation has timed out. |  ErrorMessage: System.Net.WebException: The operation has timed out.
+   at System.Net.HttpWebRequest.GetResponse()
+   at RestSharp.Http.<ExecuteRequest>g__GetRawResponse|181_1(WebRequest request)
+   at RestSharp.Http.ExecuteRequest(String httpMethod, Action`1 prepareRequest)
+2020-05-04 02:47:39,538 | 35 | DEBUG | Ending processing request /page1
+```
+#### Test #2 - Conclution
+Even if the service it's up the UI will get timeouts when pod behind it's down.
+
+kubectl rollout status deployment.v1.apps/core
+

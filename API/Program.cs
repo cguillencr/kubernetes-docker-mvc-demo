@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using API.Controllers;
+using LogsProcesor;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -16,6 +17,14 @@ namespace API
 	{
 		public static void Main(string[] args)
 		{
+			#region log4net
+			var logRepository = log4net.LogManager.GetRepository(System.Reflection.Assembly.GetEntryAssembly());
+			log4net.Config.XmlConfigurator.Configure(logRepository, new System.IO.FileInfo("log4net.config.xml"));
+
+			Logger.SetLogger(log4net.LogManager.GetLogger(System.Reflection.Assembly.GetEntryAssembly(), "demo"));
+			Logger.Debug("App starting.");
+			#endregion
+
 			#region 
 			// This block simulates an Actor who recovery state and becomes this project to a stateFull application.
 			// Simulates 20secs to recover state.
