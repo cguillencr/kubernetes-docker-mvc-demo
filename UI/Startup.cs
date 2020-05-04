@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using LogsProcesor;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -36,6 +37,7 @@ namespace UI
 			}
 
 			app.UseMvc();
+			Logger.Debug("App it's ready.");
 		}
 	}
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using APIv2.Controllers;
+using LogsProcesor;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -38,6 +39,7 @@ namespace APIv2
 			}
 
 			app.UseMvc();
+			Logger.Debug("App it's ready.");
 		}
 	}
 }

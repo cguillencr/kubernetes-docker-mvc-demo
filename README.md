@@ -42,34 +42,34 @@ git clone https://github.com/cguillencr/kubernetes-docker-mvc-demo.git
 2.  Create a locally docker images
 ```
 cd /root/kubernetes-docker-mvc-demo/API/
-docker build -t "cguillenmendez/core:0.0.2" .
+docker build -t "cguillenmendez/core:0.0.3" .
 cd /root/kubernetes-docker-mvc-demo/APIv2/
-docker build -t "cguillenmendez/core:0.1.0" .
+docker build -t "cguillenmendez/core:0.1.1" .
 cd /root/kubernetes-docker-mvc-demo/APIv3/
-docker build -t "cguillenmendez/core:0.2.0" .
+docker build -t "cguillenmendez/core:0.2.1" .
 cd /root/kubernetes-docker-mvc-demo/UI/
-docker build -t "cguillenmendez/ui:0.0.3" .
+docker build -t "cguillenmendez/ui:0.0.4" .
 docker images
 ```
 
-Validate "cguillenmendez/core 0.0.2", "cguillenmendez/core 0.1.0", "cguillenmendez/core 0.2.0" a and  "cguillenmendez/ui" 0.0.3 images was created.
+Validate "cguillenmendez/core 0.0.3", "cguillenmendez/core 0.1.1", "cguillenmendez/core 0.2.1" a and  "cguillenmendez/ui" 0.0.4 images was created.
 
 2.1 Update the image to docker.io
 ```
-docker push cguillenmendez/core:0.0.2
-docker push cguillenmendez/core:0.1.0
-docker push cguillenmendez/core:0.2.0
-docker push cguillenmendez/ui:0.0.3
+docker push cguillenmendez/core:0.0.3
+docker push cguillenmendez/core:0.1.1
+docker push cguillenmendez/core:0.2.1
+docker push cguillenmendez/ui:0.0.4
 ```
 
 
 3. Create a K8 deployment
 ```
- kubectl create deployment core --image=cguillenmendez/core:0.0.2
- kubectl create deployment core --image=cguillenmendez/core:0.1.0
- kubectl create deployment core --image=cguillenmendez/core:0.2.0
+ kubectl create deployment core --image=cguillenmendez/core:0.0.3
+ kubectl create deployment core --image=cguillenmendez/core:0.1.1
+ kubectl create deployment core --image=cguillenmendez/core:0.2.1
  kubectl delete -n default deployment ui
- kubectl create deployment ui --image=cguillenmendez/ui:0.0.3
+ kubectl create deployment ui --image=cguillenmendez/ui:0.0.4
  ```
 
 4. Create a service to expose the last pod
@@ -101,7 +101,7 @@ The kubernates bashboard shows how the: Deployment, Pod and Replica Set were del
 
 ```
 curl --location --request GET 'http://localhost:32391/page1'
-kubectl exec -it ui-7ddbdc65-q95mj -- cat /tmp/ui/out.log
+kubectl exec -it ui-74b6b5fcbd-wqpb7 -- cat /tmp/ui/out.log
 ```
 This is the output
 ```
@@ -111,12 +111,12 @@ This is the output
    at RestSharp.Http.ExecuteRequest(String httpMethod, Action`1 prepareRequest)
 ```
 
-Then for the second scenario delete the service, retrieve the page again and check the logs.  Be aware the pod name ~~ui-7ddbdc65-q95mj~~ will be different it your enviroment.
+Then for the second scenario delete the service, retrieve the page again and check the logs.  Be aware the pod name ~~ui-74b6b5fcbd-wqpb7~~ will be different it your enviroment.
 
 ```
 kubectl delete -n default service core
 curl --location --request GET 'http://localhost:32391/page1'
-kubectl exec -it ui-7ddbdc65-q95mj -- cat /tmp/ui/out.log
+kubectl exec -it ui-74b6b5fcbd-wqpb7 -- cat /tmp/ui/out.log
 ```
 This is the output
 ```

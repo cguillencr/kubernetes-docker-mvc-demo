@@ -23,7 +23,6 @@ namespace UI
 			Logger.Debug("App starting.");
 			#endregion
 
-
 			CreateWebHostBuilder(args).Build().Run();
 		}
 

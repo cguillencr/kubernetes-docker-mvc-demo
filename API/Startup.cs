@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using API.Controllers;
+using LogsProcesor;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -32,6 +33,7 @@ namespace API
 			}
 
 			app.UseMvc();
+			Logger.Debug("App it's ready.");
 		}
 	}
 }

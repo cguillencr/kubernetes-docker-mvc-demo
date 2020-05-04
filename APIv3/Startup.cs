@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using APIv3.Controllers;
+using LogsProcesor;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -37,6 +38,7 @@ namespace APIv3
 			}
 
 			app.UseMvc();
+			Logger.Debug("App it's ready.");
 		}
 	}
 }
